@@ -1,0 +1,20 @@
+description: Jigsaw example
+name: model-interventions
+command: python -m scripts.evaluate_toxicity
+parameters:
+  device: cuda
+  dtype: float32
+  wandb_project: "rtp_toxicity"
+  #  wandb_team: "my-team"
+  #  wandb_group: ""
+  #  wandb_uid: ""
+  model_path: "mistralai/Mistral-7B-v0.1"
+  module_names: ['model.layers.*.mlp.up_proj', 'model.layers.*.mlp.down_proj', 'model.layers.*.mlp.gate_proj']
+  intervention_name: "aura"
+  intervention_state_path: "aura-toxicity-max/Mistral-7B-v0.1"
+  # Eval specific args
+  toxicity_classifier: "s-nlp/roberta_toxicity_classifier"
+  rtp_sentences: 100
+  ppl_sentences: 100
+
+

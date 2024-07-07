@@ -1,0 +1,18 @@
+description: Jigsaw example
+name: model-interventions
+parameters:
+  dataset: ["jigsaw"]
+  positive_subset:
+  - toxic
+  negative_subset:
+  - non-toxic
+  num_workers: 4
+  pooling_op: ['max']
+  seed: 42
+  model_path: "openai-community/gpt2"
+  module_names: ['transformer.h.*.mlp.c_fc', 'transformer.h.*.mlp.c_proj']
+  tag: "toxicity-responses"
+  intervention: "aura"
+  num_experts: null
+command:
+  "${PYTHON} -m scripts.learn_aura"

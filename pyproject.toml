@@ -1,0 +1,31 @@
+[project]
+name = "aura"
+version = "0.0.1"
+description = "This software project accompanies the research paper, Whispering Experts: Neural Interventions for Toxicity Mitigation in Language Models."
+readme = "README.rst"
+authors = [
+    {name="Pau Ropdríguez", email="pau.rodriguez@apple.com"},
+    {name="Xavier Suau",  email="xsuaucuadros@apple.com"},
+]
+license = { text = "Apple Sample Code License" }
+dynamic = ["dependencies"]
+
+# This will fetch dependencies from requirements.txt when running `pip install .`.
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
+[project.urls]
+homepage = "https://github.com/apple/ml-aura"
+
+# Below taken from https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html
+[tool.setuptools.packages.find]
+where = ["src"]  # list of folders that contain the packages (["."] by default)
+include = [
+    "datasets_lib",
+    "hooks",
+    "models",
+    "parsers",
+    "scripts",
+    "utils", ]  # package names should match these glob patterns (["*"] by default)
+exclude = ["tests*"]  # exclude packages matching these glob patterns (empty by default)
+namespaces = false  # to disable scanning PEP 420 namespaces (true by default)

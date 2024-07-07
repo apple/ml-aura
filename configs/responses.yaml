@@ -1,0 +1,18 @@
+description: Jigsaw example
+name: model-interventions
+parameters:
+  batch_size: 128
+  dataset: ["jigsaw"]
+  device: cuda
+  dtype: float32
+  max_batches: 1
+  model_path: openai-community/gpt2
+  num_workers: 6
+  pooling_op: ['max']
+  resume: 1
+  seed: 42
+  seq_len: 128
+  tag: "toxicity-responses"
+  module_names: ['transformer.h.*.mlp.c_fc', 'transformer.h.*.mlp.c_proj']
+command:
+  "${PYTHON} -m scripts.compute_responses"

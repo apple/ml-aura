@@ -1,0 +1,16 @@
+description: Jigsaw example
+name: model-interventions
+parameters:
+  dataset: ["jigsaw"]
+  positive_subset:
+  - toxic
+  negative_subset:
+  - non-toxic
+  num_workers: null
+  pooling_op: ['max']
+  seed: 42
+  model_path: sshleifer/tiny-gpt2
+  module_names: ['*']
+  tag: "toxicity-responses"
+command:
+  python -m scripts.learn_aura

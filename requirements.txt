@@ -1,0 +1,12 @@
+torch
+torchvision
+transformers==4.38.1
+accelerate
+datasets
+black
+pre-commit
+scikit-learn
+pandas
+wandb
+numpy
+pytest
